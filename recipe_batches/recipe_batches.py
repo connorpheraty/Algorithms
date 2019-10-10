@@ -3,7 +3,24 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  
+  if len(recipe) == len(ingredients):
+  
+    int_dict = {}
+    for i in recipe:
+      int_dict.update({i:0})
+
+
+    for i in recipe:
+      num = ingredients[i] // recipe[i]
+      int_dict[i] = num
+
+
+    key_min = min(int_dict.keys(), key=(lambda k: int_dict[k]))
+
+    return int_dict[key_min]
+  else:
+    return 0
 
 
 if __name__ == '__main__':

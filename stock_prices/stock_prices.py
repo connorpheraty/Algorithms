@@ -3,7 +3,23 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+    d = dict(enumerate(prices))
+    l = len(d)
+
+    profit_lst = []
+    count = 1
+    
+    for i in d:  
+        for i in range(count, l):
+            num = (d[count] - d[i])*-1
+            profit_lst.append(num)
+        count +=1
+        
+    for i in profit_lst:
+        if i == 0:
+            profit_lst.remove(i)
+        
+    return max(profit_lst)
 
 
 if __name__ == '__main__':
